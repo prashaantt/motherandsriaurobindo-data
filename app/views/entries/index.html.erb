@@ -1,0 +1,18 @@
+<% content_for :head do %>
+  <meta name="fragment" content="!">
+<% end %>
+
+<div class='dictionary-jumbo text-center'>
+  <%= image_tag('sri-aurobindo.jpg', class: 'img-responsive sri-aurobindo', alt: 'Sri Aurobindo') %>
+  <h1>The Master Word</h1>
+  <h4 class="dictionary-subtitle"><em>Words and terms in Sri Aurobindo's and Mother's works</em></h4>
+</div>
+
+<% if params['_escaped_fragment_'].nil? %>
+  <div id="output"></div>
+  <script type="text/template" id="template">
+    <%= render 'templates/entries/index' %>
+  </script>
+<% else %>
+  <%= render 'templates/entries/index', :mustache => process(@data) %>
+<% end %>

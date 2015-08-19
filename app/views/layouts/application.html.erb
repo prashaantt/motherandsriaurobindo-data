@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<% device_type = request.env['mobvious.device_type'].to_s %>
+<html lang='en' <%= device_type != 'mobile' ? 'class=top-padding' : '' %>>
+<head>
+  <% if params['_escaped_fragment_'].nil? %>
+    <title>The Incarnate Word</title>
+  <% else %>
+    <title><%= page_title %>The Incarnate Word</title>
+  <% end %>
+  <%= yield :head %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= requirejs_include_tag "application" do { "turbolinks-track" => true } end %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body data-device-type=<%= device_type %>>
+  <%= include_gon %>
+  <header class="navbar navbar-default <%= device_type == 'mobile' ? 'navbar-static-top' : 'navbar-fixed-top' %> navbar-custom" role="navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="dropdown js-toc-dropdown"></div>
+            <%= link_to 'The Incarnate Word', root_url(subdomain: ''), class: 'navbar-brand' %>
+          </div>
+          <nav class="collapse navbar-collapse no-transition" id="nav-collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown <%= 'active' if sri_aurobindo %>">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  Sri Aurobindo <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'About', root_url(subdomain: '') + 'sa', class: "dropdown-toggle" %></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><%= link_to 'Birth Centenary Library', root_url(subdomain: '') + 'sabcl', class: "dropdown-toggle" %></li>
+                  <li><%= link_to 'Complete Works', root_url(subdomain: '') + 'cwsa', class: "dropdown-toggle" %></li>
+                </ul>
+              </li>
+              <li class="dropdown <%= 'active' if mother %>">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  The Mother <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'About', root_url(subdomain: '') + 'm', class: "dropdown-toggle" %></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><%= link_to 'Collected Works', root_url(subdomain: '') + 'cwm', class: "dropdown-toggle" %></li>
+                  <li><%= link_to 'Agenda', root_url(subdomain: '') + 'agenda', class: "dropdown-toggle" %></li>
+                </ul>
+              </li>
+              <li class="<%= 'active' if params[:controller] == 'entries' %>"><%= link_to 'Dictionary', root_url(subdomain: 'dictionary') %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if current_user %>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-twitter"></i> <%=  current_user.handle %> <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-custom">
+                    <li><%= link_to 'Sign out', signout_path %></li>
+                  </ul>
+                </li>
+              <% else %>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Sign in <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-custom">
+                    <li><a href='/auth/twitter'><i class="fa fa-twitter"></i> Twitter</a></li>
+                  </ul>
+                </li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container-top">
+    <div class="container">
+      <div class="row row-body">
+        <div class="col-sm-1 js-sharebar col-lg-offset-1 text-center"></div>
+        <div class="col-lg-8 col-md-10 js-content <%= device_type == 'mobile' ? 'xs-wide' : '' %>">
+          <%= yield %>
+          <div id="context-menu" style="position: absolute; z-index: 9999; top: 296px; left: 285px;" class="">
+            <ul class="dropdown-menu" role="menu" style="font-size: smaller;cursor: pointer">
+              <li class="js-add-quote"><a tabindex="-1">Add to quotes</a></li>
+              <li class="js-add-tags" data-list="list"><a tabindex="-1" data-anchor="anchor" class="js-add-tag-anchor">Add tags</a></li>
+              <!-- <input type="text" placeholder="Tags"> -->
+              <!--  <li><a tabindex="-1">Another action</a></li>
+               <li><a tabindex="-1">Something else here</a></li>
+               <li class="divider"></li>
+               <li><a tabindex="-1">Separated link</a></li> -->
+            </ul>
+          </div>
+          <div class="modal fade quote-tags-modal" tabindex="-1" role="dialog" aria-labelledby="add-quote-tags" aria-hidden="true">
+            <div class="modal-dialog small">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="add-quote-tags">Add quotation</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="selected-quote">Selection</label>
+                    <textarea class="form-control serif js-quote-selection" id="selected-quote" style="resize: none;font-size: inherit" rows="4"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="tags-list">Tags (comma-separated)</label>
+                    <input type="text" class="form-control js-quote-tags" style="font-size: inherit" id="tags-list" placeholder="Enter tags">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary btn-sm js-save-quote-modal">Save quote</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 js-sidebar"></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal spinner-modal" data-backdrop="static">
+    <div class="modal-dialog-custom">
+      <div class="spinner-modal-content">
+        <div class="modal-body-custom text-center">
+          <i class="fa fa-spinner fa-spin-faster"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/ga' if Rails.env.production? %>
+</body>
+</html>

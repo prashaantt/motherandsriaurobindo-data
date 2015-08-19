@@ -1,0 +1,35 @@
+<div class="jumbotron text-center">
+  <h1>Selected Quotations</h1>
+</div>
+<div class="text-bg" style="padding: 7px 29px">
+    {{#quotes}}
+      <div class="quote-volume">
+        <h3>From &ldquo;{{t}}&rdquo; <a class="text-muted small" href="/{{comp}}/{{vol}}">({{comp}}/{{vol}})</a> <span class=""></span></h3>
+        <ul class="list-unstyled">
+          {{#list}}
+            <li class="clearfix js-quote-list" data-quote-id="{{id}}" {{#tags}}data-tags="{{tags}}"{{/tags}} style="margin-top: 30px">
+              <img src="{{#asset}}symbol_{{auth}}_.gif{{/asset}}" style="width: 30px;left: 50%;position: relative;margin-bottom: 30px">
+              <div class="quote">{{#markedBasic}}{{{sel}}}{{/markedBasic}}</div>
+              <p class="js-quote-controls small pull-right sans-serif">
+                {{#tags}}
+                  <span class="label label-default">{{.}}</span>
+                {{/tags}}
+                {{#tags.length}}|{{/tags.length}}
+                <a href={{ref}}>Read more</a>
+                {{#editable}}| <a class="js-edit-quote" href="#">Edit</a>{{/editable}}
+                {{#deletable}}| <a class="js-delete-quote" href="#">Delete</a>{{/deletable}}
+              </p>
+              <div class="js-quote-editor" style="display:none">
+                <textarea class="form-control serif" style="margin-bottom: 10px;resize: none" rows=4></textarea>
+                <input type="text" class="form-control js-quote-tags" style="font-size: inherit;margin-bottom: 10px" id="tags-list" placeholder="Enter tags">
+                <p class="js-quote-edit-controls small pull-right sans-serif">
+                  <button class="btn btn-primary btn-xs js-update-quote" href="#" style="margin-right: 10px">Update</button>
+                  <a class="js-cancel-quote" href="#">Cancel</a>
+                </p>
+              </div>
+            </li>
+          {{/list}}
+        </ul>
+      </div>
+    {{/quotes}}
+</div>

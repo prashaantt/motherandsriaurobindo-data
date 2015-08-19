@@ -1,0 +1,17 @@
+{{#compilation}}
+<div class="jumbotron text-center">
+  <img src="{{#asset}}symbol_{{auth}}_.gif{{/asset}}">
+  <p class="l3"><a href="/{{auth}}">{{autn}}</a></p>
+  <h1>{{cmpn}}</h1>
+  <p class="l3">{{subt}}</p>
+</div>
+<!-- <div class="vol-desc text-bg"></div> -->
+<nav class="text-bg sans-serif">
+  <h1 class="text-center">Volumes</h1>
+  <ul class="list-unstyled">
+    {{#vols}}
+      <li class="volume-title l4"><a href="{{url}}"><span class="small text-muted">{{vol}} / </span>{{t}}</a></li>
+    {{/vols}}
+  </ul>
+</nav>
+{{/compilation}}

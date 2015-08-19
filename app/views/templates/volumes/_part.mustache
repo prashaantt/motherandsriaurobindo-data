@@ -1,0 +1,22 @@
+<li class="toc-part">
+  {{#partt}}
+    <h3>{{#part}}<small>{{part}} / </small>{{/part}}{{partt}}</h3>
+  {{/partt}}
+  {{^partt}}
+    {{#part}}<h3>{{part}}</h3>{{/part}}
+  {{/partt}}
+  {{#sections.length}}
+    <ul class="list-unstyled sections">
+      {{#sections}}
+        {{> _section}}
+      {{/sections}}
+    </ul>
+  {{/sections.length}}
+  {{#chapters.length}}
+    <ul class="list-unstyled chapters">
+      {{#chapters}}
+        {{> _chapter}}
+      {{/chapters}}
+    </ul>
+  {{/chapters.length}}
+</li>

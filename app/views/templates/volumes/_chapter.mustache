@@ -1,0 +1,24 @@
+<li class="toc-chapter">
+  <p class="toc-chapter-title l5">
+    <a href="{{#padNum}}{{vol}}{{/padNum}}/{{u}}">{{#chap}}<span class="small text-muted">{{chap}} / </span>{{/chap}}{{chapt}}</a>
+  </p>
+  {{#segments}}
+    {{#segt}}
+      <p class="toc-segment-title l6">{{segt}}</p>
+    {{/segt}}
+    <ul class="list-unstyled segments">
+      {{#items}}
+        <li class="small toc-item-title"><a href="{{#padNum}}{{vol}}{{/padNum}}/{{u}}">{{itemt}}</a></li>
+      {{/items}}
+    </ul>
+  {{/segments}}
+  {{#items.length}}
+    <ul class="list-unstyled items">
+      {{#items}}
+        <li class="small sans-serif toc-item-title">
+          <a href="{{#padNum}}{{vol}}{{/padNum}}/{{u}}">{{itemt}}</a>
+        </li>
+      {{/items}}
+    </ul>
+  {{/items.length}}
+</li>

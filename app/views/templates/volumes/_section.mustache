@@ -1,0 +1,28 @@
+<li class="toc-section">
+  {{#sect}}
+    <h4>{{#sec}}<small>{{sec}} / </small>{{/sec}}{{sect}}</h4>
+  {{/sect}}
+  {{^sect}}
+    {{#sec}}<h4>{{sec}}</h4>{{/sec}}
+  {{/sect}}
+  {{#subsections}}
+    {{#subst}}
+      <p class="l5">{{#subs}}<small>{{subs}} / </small>{{/subs}}{{subst}}</p>
+    {{/subst}}
+    {{^subst}}
+      {{#subs}}<p class="l5">{{subs}}</p>{{/subs}}
+    {{/subst}}
+    <ul class="list-unstyled chapters">
+      {{#chapters}}
+        {{> _chapter}}
+      {{/chapters}}
+    </ul>
+  {{/subsections}}
+  {{#chapters.length}}
+    <ul class="list-unstyled chapters">
+      {{#chapters}}
+        {{> _chapter}}
+      {{/chapters}}
+    </ul>
+  {{/chapters.length}}
+</li>

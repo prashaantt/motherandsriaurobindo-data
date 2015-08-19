@@ -1,0 +1,12 @@
+<% content_for :head do %>
+<meta name="fragment" content="!">
+<% end %>
+
+<% if params['_escaped_fragment_'].nil? %>
+  <main id="output"></main>
+  <script type="text/template" id="template">
+    <%= render 'templates/chapters/show' %>
+  </script>
+<% else %>
+  <%= render 'templates/chapters/show', :mustache => process(@data) %>
+<% end %>

@@ -1,0 +1,57 @@
+{{#volume}}
+  <nav>
+    <ul class="pager pager-custom text-bg hidden-xs">
+      {{#prvt}}
+        <li class="previous small"><a href="{{prvu}}">{{#prv}}Vol. {{prvv}}: {{prvt}}{{/prv}}</a></li>
+      {{/prvt}}
+      {{#nxtt}}
+        <li class="next small"><a href="{{nxtu}}">{{#nxt}}Vol. {{nxtv}}: {{nxtt}}{{/nxt}}</a></li>
+      {{/nxtt}}
+    </ul>
+  </nav>
+  <div class="jumbotron text-center">
+    <p class="l4"><a href="/{{curl}}">{{cmpn}}</a></p>
+    <img src="{{#asset}}symbol_{{auth}}_.gif{{/asset}}">
+    <p class="l3">Volume {{vol}}</p>
+    <h1>{{t}}</h1>
+    {{#subt}}
+      <p class="l3"><em>{{subt}}</em></p>
+    {{/subt}}
+  </div>
+  <nav class="text-bg">
+    <h1 class="text-center">Contents</h1>
+    {{#toc}}
+      {{#books.length}}
+        <ul class="list-unstyled books">
+          {{#books}}
+            {{> _book}}
+          {{/books}}
+        </ul>
+      {{/books.length}}
+      {{#parts.length}}
+        <ul class="list-unstyled parts">
+        {{#parts}}
+          {{> _part}}
+        {{/parts}}
+        </ul>
+      {{/parts.length}}
+      {{#chapters.length}}
+        <ul class="list-unstyled chapters">
+        {{#chapters}}
+          {{> _chapter}}
+        {{/chapters}}
+        </ul>
+      {{/chapters.length}}
+    {{/toc}}
+  </nav>
+  <nav>
+    <ul class="pager pager-custom text-bg hidden-xs">
+      {{#prvt}}
+        <li class="previous small"><a href="{{prvu}}">{{#prv}}Vol. {{prvv}}: {{prvt}}{{/prv}}</a></li>
+      {{/prvt}}
+      {{#nxtt}}
+        <li class="next small"><a href="{{nxtu}}">{{#nxt}}Vol. {{nxtv}}: {{nxtt}}{{/nxt}}</a></li>
+      {{/nxtt}}
+    </ul>
+  </nav>
+{{/volume}}

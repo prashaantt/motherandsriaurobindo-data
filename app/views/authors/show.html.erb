@@ -1,0 +1,77 @@
+<% content_for :head do %>
+<meta name="fragment" content="!">
+<% end %>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <!-- <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol> -->
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner sans-serif">
+    <% if sri_aurobindo %>
+      <div class="item active">
+        <%= image_tag('sri-aurobindo.jpg', alt: 'Sri Aurobindo') %>
+        <!-- <div class="carousel-caption">
+          <h3>Sri Aurobindo</h3>
+          <p>A traveller between summit and abyss.</p>
+        </div> -->
+      </div>
+      <!-- <div class="item">
+        <%= image_tag('sri-aurobindo.jpg', alt: 'Sri Aurobindo') %>
+        <div class="carousel-caption">
+          <h3>Sri Aurobindo</h3>
+          <p>We are sons of God and must be even as he.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag('sri-aurobindo.jpg', alt: 'Sri Aurobindo') %>
+        <div class="carousel-caption">
+          <h3>Sri Aurobindo</h3>
+          <p>The day-bringer must walk in darkest night.</p>
+        </div>
+      </div> -->
+    <% else %>
+      <div class="item active">
+        <%= image_tag('mother.jpg', alt: 'Mother') %>
+        <!-- <div class="carousel-caption">
+          <h3>Mother</h3>
+          <p>All can be done if the god-touch is there.</p>
+        </div> -->
+      </div>
+      <!-- <div class="item">
+        <%= image_tag('mother.jpg', alt: 'Mother') %>
+        <div class="carousel-caption">
+          <h3>Mother</h3>
+          <p>All can be done if the god-touch is there.</p>
+        </div>
+      </div> -->
+      <!-- <div class="item">
+        <%= image_tag('mother.jpg', alt: 'Mother') %>
+        <div class="carousel-caption">
+          <h3>Mother</h3>
+          <p>All can be done if the god-touch is there.</p>
+        </div>
+      </div> -->
+    <% end %>
+  </div>
+
+  <!-- Controls -->
+  <!-- <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="fa fa-chevron-left glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="fa fa-chevron-right glyphicon-chevron-right"></span>
+  </a> -->
+</div>
+<% if params['_escaped_fragment_'].nil? %>
+  <div id="output"></div>
+  <script type="text/template" id="template">
+    <%= render 'templates/authors/show' %>
+  </script>
+<% else %>
+  <%= render 'templates/authors/show', :mustache => process(@data) %>
+<% end %>

@@ -1,0 +1,17 @@
+{{#author}}
+  <div class="text-bg">
+    <h3 class="text-center">{{dest}}</h3>
+    {{#marked}}{{{desc}}}{{/marked}}    
+  </div>
+  <div class="text-bg">
+    <h3 class="text-center">Works</h3>
+    <ul class="list-unstyled text-center">
+      {{#comp}}
+        <li class="compilation-title l4"><a href="{{u}}">{{t}}</a></li>
+      {{/comp}}
+    </ul>
+    {{^comp}}
+      <div class="text-center">Coming soon!</div>
+    {{/comp}}
+  </div>
+{{/author}}

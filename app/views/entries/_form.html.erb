@@ -1,0 +1,45 @@
+<%= form_for @entry do |f| %>
+  <% if @entry.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+    <ul>
+    <% @entry.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :word %><br>
+    <%= f.text_field :word, class: 'form-control js-word-input serif' %>
+  </p>
+
+  <div class='entry-form'>
+    <ul class="nav nav-tabs">
+      <li class="active"><%= link_to 'Definition', '#', id: 'definition-btn' %></li>
+      <li><%= link_to 'Preview', '#', id: 'preview-btn' %></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="definition">
+        <%= f.text_area :definition, class: 'form-control form-control-custom js-definition-input serif', rows: 15 %>
+      </div>
+      <div class="tab-pane panel panel-default panel-custom" id="preview">
+        <div class="panel-body panel-body-custom" id="preview-panel"></div>
+      </div>
+    </div>
+  </div>
+  
+  <p>
+    <%= f.label :related_words %><br>
+    <%= f.text_field :related_words, class: 'form-control serif', placeholder: 'Comma-separated, only used for search' %>
+  </p>
+ 
+  <div class='text-center form-button-group'>
+    <%= link_to 'Cancel', params[:action] == 'edit' ? dictionary_entry_path(@entry) : root_url(subdomain: request.subdomain), class: 'btn btn-link' %>
+    <%= f.submit nil, class: 'btn btn-success' %>
+    <% if params[:action] == 'edit' %>
+      <%= link_to 'Delete', @entry, method: 'delete', confirm: 'Are you sure?', class: 'btn btn-link btn-link-danger' %>
+    <% end %>
+  </div>
+<% end %>

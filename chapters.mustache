@@ -1,0 +1,17 @@
+<strong>{{chap}}</strong>
+<li style="background: url(/assets/dot.png) 0px 0.8em repeat-x rgb(255, 255, 255);margin: 0 0 0.25em 0">
+  <span style="background: #fff;padding-right: 3px"><a href="{{#padNum}}{{vol}}{{/padNum}}/{{u}}">{{t}}</a></span>
+  {{#segments}}
+  <h5 class="toc-segment-title">{{t}}</h5>
+  <ul class="list-unstyled">
+    {{#items}}
+      <li class="small" style="margin-left: 40px"><a href="{{#padNum}}{{vol}}{{/padNum}}/{{u}}">{{t}}</a></li>
+    {{/items}}
+  </ul>
+  {{/segments}}
+  <ul class="list-unstyled">
+    {{#items}}
+      <li class="small" style="margin-left: 20px"><a href="{{#padNum}}{{vol}}{{/padNum}}/{{u}}">{{t}}</a></li>
+    {{/items}}
+  </ul>
+</li>

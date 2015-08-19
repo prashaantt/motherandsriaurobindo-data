@@ -1,0 +1,255 @@
+// globally-applicable styles go here
+
+// layouts
+
+html, body {
+  // http://www.noisetexturegenerator.com/
+  // http://www.cssmatic.com/
+  background-image: image-url('noisy-texture-100x100-o5-d10-c-f5f5f5-t1.png');
+}
+
+.top-padding {
+  padding-top: 80px;
+}
+
+@media (max-width: $screen-xs-max) {
+  .row-body {
+    margin-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .navbar-custom {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar-toggle {
+    margin-right: 0;
+  }
+  .navbar-brand {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .btn-toc {
+    margin-right: 5px;
+  }
+}
+
+.container-top {
+  min-height: 100%;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.row-body {
+  margin-top: 20px;
+  padding-bottom: 48px;
+}
+
+.xs-wide {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.container-footer {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+}
+
+.row-footer {
+  margin: 0px;
+}
+
+.footer {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.qlink {
+  // margin-left: 5px;
+  padding: 5px 10px 5px 10px !important;
+  position: relative;
+  -webkit-backface-visibility: hidden
+}
+
+// fix scroll under navbar
+.footnote-ref {
+  // padding-top: 55px !important;
+  // margin-top: -55px !important;
+  // background-clip: content-box;
+}
+
+// home
+
+.landing {
+  font-size: $font-size-h3;
+  font-family: $font-family-serif;
+  font-style: italic;
+}
+
+// typography
+
+.serif {
+  font-family: $font-family-serif;
+  -moz-font-feature-settings : 'kern= 1','calt=0';
+  -moz-font-feature-settings : "kern" 1,"calt" 0;
+  -webkit-font-feature-settings : "kern" 1,"calt" 0;
+  -ms-font-feature-settings : 'kern= 1','calt=0';
+  -o-font-feature-settings : "kern" 1,"calt" 0;
+  font-feature-settings : "kern" 1,"calt" 0;
+}
+
+p {
+  @extend .serif;
+}
+
+.sans-serif {
+  font-family: $font-family-sans-serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
+// forms
+
+.form-button-group {
+  margin-top: 48px;
+
+  a, input {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+// bootstrap components
+
+.navbar-custom {
+  font-size: $font-size-small;
+
+  .dropdown-menu {
+    font-size: inherit;
+  }
+
+  .navbar-brand {
+    font-size: ceil($font-size-small * 1.25);
+  }
+}
+
+.dropdown-menu-custom {
+  min-width: 0px;
+}
+
+.btn-link-danger {
+  @extend .btn-link;
+  color: #a94442 !important;
+}
+
+.col-overflow {
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// other stuff
+
+hr {
+  border-top: none;
+  text-align: center;
+  &:after {
+    content: "*";
+    color: $gray-light;
+    position: relative;
+    top: -0.5em;
+    font-size: 1.5em;
+  }
+}
+
+// html.turbolinks-progress-bar::before {
+//   background-color: red !important;
+//   height: 5px !important;
+// }
+
+.modal-backdrop {
+  background-color: transparent;
+}
+
+.spinner-modal-content {
+  @extend .modal-content;
+  background-color: rgba(51, 51, 51, 0.75);
+  border: 1px solid #999;
+}
+
+.spinner-modal {
+  position: fixed;
+  top: 35%;
+}
+
+.fa-spin-faster {
+  font-size: 72px;
+  color: #fff;
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+}
+
+.no-transition {
+  -webkit-transition: height 0.01s;
+  -moz-transition: height 0.01s;
+  -ms-transition: height 0.01s;
+  -o-transition: height 0.01s;
+  transition: height 0.01s;
+}
+
+.modal-dialog-custom {
+  @extend .modal-dialog;
+  width: 100px;
+  margin: auto;
+}
+
+.modal-body-custom {
+  @extend .modal-body;
+  height: 98px;
+}
+
+.l1 {
+  @extend h1;
+  font-size: $font-size-h1 !important;
+  font-weight: $headings-font-weight !important;
+}
+
+.l2 {
+  @extend h2;
+  font-size: $font-size-h2 !important;
+  font-weight: $headings-font-weight !important;
+}
+
+.l3 {
+  @extend h3;
+  font-size: $font-size-h3 !important;
+  font-weight: $headings-font-weight !important;
+}
+
+.l4 {
+  @extend h4;
+  font-size: $font-size-h4 !important;
+  font-weight: $headings-font-weight !important;
+}
+
+.l5 {
+  @extend h5;
+  font-size: $font-size-h5 !important;
+  font-weight: $headings-font-weight !important;
+}
+
+
+.l6 {
+  @extend h6;
+  font-size: $font-size-h6 !important;
+  font-weight: $headings-font-weight !important;
+}

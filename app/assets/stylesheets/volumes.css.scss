@@ -1,0 +1,53 @@
+// Place all the styles related to the volumes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.text-bg {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 15px;
+
+  img {
+    @extend .img-responsive
+  }
+}
+
+.anchor-alt {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px dotted #333;
+
+  &:hover {
+    color: inherit;
+    text-decoration: inherit;
+    border-bottom: none;
+  }
+}
+
+.toc-chapter {
+  background: image-url('dot.png') 0px 0.6em repeat-x rgb(255, 255, 255);
+  margin: 0 0 0.25em 0;
+}
+
+.toc-chapter-title {
+  @extend .sans-serif;
+  font-weight: normal !important;
+  background: #fff;
+  padding-right: 3px;
+  display: inline;
+}
+
+.outline {
+  display: none;
+}
+
+.volume-title {
+  font-weight: normal !important;
+  font-style: italic;
+}
+
+.toc-item-title {
+  margin-left: 20px;
+}

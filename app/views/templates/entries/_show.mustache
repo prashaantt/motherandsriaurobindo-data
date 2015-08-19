@@ -1,0 +1,11 @@
+{{#entry}}
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h1 class="panel-title entry">{{word}}</h1>
+    {{#edit_url}}
+      <a href='{{edit_url}}' class='btn btn-link pull-right edit-url'><span class="small">Edit</span></a>
+    {{/edit_url}}
+  </div>
+  <div class="panel-body panel-body-custom">{{#marked}}{{{definition}}}{{/marked}}</div>
+</div>
+{{/entry}}

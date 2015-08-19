@@ -1,0 +1,24 @@
+<% content_for :head do %>
+<meta name="fragment" content="!">
+<% end %>
+
+<% if params['_escaped_fragment_'].nil? %>
+  <div id="output"></div>
+  <script type="text/template" id="template">
+    <%= render 'templates/volumes/show' %>
+  </script>
+  <script type="text/template" id="bookTemplate">
+    <%= render 'templates/volumes/book' %>
+  </script>
+  <script type="text/template" id="partTemplate">
+    <%= render 'templates/volumes/part' %>
+  </script>
+  <script type="text/template" id="sectionTemplate">
+    <%= render 'templates/volumes/section' %>
+  </script>
+  <script type="text/template" id="chapterTemplate">
+    <%= render 'templates/volumes/chapter' %>
+  </script>
+<% else %>
+  <%= render 'templates/volumes/show', :mustache => process(@data) %>
+<% end %>

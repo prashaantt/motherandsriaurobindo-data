@@ -1,0 +1,58 @@
+<%= form_for @book do |f| %>
+  <% if @book.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@book.errors.count, "error") %> prohibited this entry from being saved:</h2>
+    <ul>
+    <% @book.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :subtitle %><br>
+    <%= f.text_field :subtitle, class: 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :author, 'Author' %><br>
+    <%= f.select(:author_code, [['Sri Aurobindo', 'sa'], ['The Mother', 'm']], { include_blank: true }, { class: 'form-control author-list' }) %>
+  </p>
+  <div class="row">
+    <div class='col-sm-8'>
+      <%= f.label :compilation, 'Collection' %><br>
+      <%= f.select(:compilation_code, [[]], {}, { class: 'form-control collection-list' }) %>
+    </div>
+    <div class='col-sm-4'>
+      <%= f.label :volume %><br>
+      <%= f.select(:volume, [[]], {}, { class: 'form-control volumes-list' }) %>
+    </div>
+  </div>
+
+  <div class='entry-form'>
+    <ul class="nav nav-tabs">
+      <li class="active"><%= link_to 'Description', '#', id: 'definition-btn' %></li>
+      <li><%= link_to 'Preview', '#', id: 'preview-btn' %></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="definition">
+        <%= f.text_area :description, class: 'form-control form-control-custom serif', rows: 15 %>
+      </div>
+      <div class="tab-pane panel panel-default panel-custom" id="preview">
+        <div class="panel-body" id="preview-panel"></div>
+      </div>
+    </div>
+  </div>
+
+  <%= f.hidden_field :compilation, class: 'collection' %>
+  <%= f.hidden_field :author, class: 'author' %>
+  <div class='text-center form-button-group'>
+    
+    <%= f.submit nil, class: 'btn btn-success' %>
+    
+  </div>
+<% end %>

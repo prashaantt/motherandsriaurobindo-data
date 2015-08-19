@@ -1,0 +1,302 @@
+// Place all the styles related to the Chapters controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pager-custom {
+  margin-top: 0;
+}
+
+.chapter {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid $gray-lighter;
+  border-radius: 4px;
+}
+
+.chapter-heading {
+  padding-right: 60px;
+}
+
+.chapter-title {
+  border-bottom: 1px solid $gray-lighter;
+  padding: 0 14px 14px 14px;
+  position: relative;
+}
+
+.date-badge {
+  position: absolute;
+  right: 0;
+  padding-right: 14px;
+}
+
+.chapter-meta {
+  margin-bottom: 14px;
+  margin-top: 14px;
+}
+
+.desc {
+  border-bottom: 1px solid $gray-lighter;
+  margin-bottom: 14px;
+  padding: 0 14px;
+
+  p {
+    @extend .sans-serif;
+  }
+}
+
+.motto {
+  font-size: 85%;
+  border-bottom: 1px solid #eee;
+  padding: 7px 14px;
+}
+
+.text {
+  h1, h2, h3, h4, h5, h6 {
+    padding: 0 14px;
+  }
+}
+
+.footnotes {
+  @extend .serif;
+  border-top: 1px solid $gray-lighter;
+  padding-top: 15px;
+  margin-top: 25px;
+}
+
+.footnote-ref {
+  margin-left: 2px;
+}
+
+.scp {
+  @extend .small;
+}
+
+.text p {
+  &[data-selected="true"] {
+    background-color: #eee;
+  }
+}
+
+body[data-device-type="desktop"] {
+  .growl-animated {
+      -webkit-transition: all .5s ease-in-out;
+      -moz-transition: all .5s ease-in-out;
+      -o-transition: all .5s ease-in-out;
+      -ms-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+  }
+
+  .text p {
+    &[data-selected="true"] {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    &[data-selected="false"] {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+}
+
+body[data-device-type="tablet"], body[data-device-type="mobile"] {
+  .alert {
+    border-radius: 0;
+  }
+}
+
+.no-selection {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+}
+
+.t1 {
+  margin-left: 0px;
+}
+
+.t2 {
+  margin-left: 0px;
+}
+
+.t3 {
+  margin-left: 10px;
+}
+
+.t4 {
+  margin-left: 20px;
+}
+
+.t5 {
+  margin-left: 30px;
+}
+
+.t6 {
+  margin-left: 40px;
+}
+
+.close-notif {
+  top: 0px !important;
+}
+
+[data-growl='title'] {
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+}
+
+.para {
+  margin: 0;
+  padding: 7px 14px;
+}
+
+.footnotes .para {
+  margin: 14px 0;
+  padding: 0;
+}
+
+.aside {
+  margin: 0;
+  padding: 14px 42px;
+}
+
+.comment {
+  margin: 0;
+  padding: 14px 42px;
+}
+
+.mini-submenu {
+  display: block;
+  background-color: #fff;
+  padding: 9px;
+  width: 42px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.mini-submenu .icon-bar {
+  // width: 22px;
+  background-color: #888;
+  display: block;
+  height: 2px;
+  margin-top: 3px;
+  // border-radius: 1px;
+}
+
+.btn-custom {
+  background-color: #f5f5f5;
+  border-color: transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.row div {
+  -webkit-transition: width .3s ease, margin .3s ease;
+  -moz-transition: width .3s ease, margin .3s ease;
+  -o-transition: width .3s ease, margin .3s ease;
+  -ms-transition: width .3s ease, margin .3s ease;
+  transition: width .3s ease, margin .3s ease;
+}
+
+.btn-toc {
+  @extend .navbar-toggle;
+  padding: 4px 14px;
+}
+
+.toc-dropdown {
+  @extend .dropdown-menu;
+  top: 50px;
+  right: 0;
+  left: inherit;
+  float: right;
+}
+
+.toc-divider {
+  @extend .divider;
+  margin: 4px 0 !important;
+}
+
+.toc-overflow {
+  @extend .col-overflow;
+  max-width: 320px;
+}
+
+.toc-segment-title {
+  margin: 14px 0 7px 20px;
+}
+
+// Adapted from http://www.sitepoint.com/create-calendar-icon-html5-css3/
+
+time.calendar
+{
+  font-size: 0.4em; /* change icon size */
+  display: block;
+  position: relative;
+  width: 7em;
+  height: 7em;
+  background-color: #fff;
+  border-radius: 0.6em;
+  box-shadow: 0 0 0 1px $gray-light;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotate(0deg) skewY(0deg);
+  -webkit-transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
+}
+
+@mixin calendar-icon {
+  display: block;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+}
+
+.calendar .year
+{
+  @include calendar-icon;
+  position: absolute;
+  top: 0;
+  color: #fff;
+  background-color: $gray-light;
+  font-size: 1.6em;
+}
+
+.calendar .day
+{
+  @include calendar-icon;
+  position: absolute;
+  top: 2.2em;
+  color: $gray-light;
+  // letter-spacing: -0.03em;
+}
+
+.calendar .date
+{
+  @include calendar-icon;
+  color: $gray-light;
+  font-size: 1.8em;
+  letter-spacing: -0.05em;
+  padding-top: 1.8em;
+}
+
+.calendar .month
+{
+  @include calendar-icon;
+  position: absolute;
+  bottom: 0.1em;
+  color: $gray-light;
+  // letter-spacing: -0.03em;
+  font-size: 1.1em;
+}
+
+.edit-chapter::before {
+  content: "" !important;
+  padding: 0 !important;
+}

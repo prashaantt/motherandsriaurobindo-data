@@ -1,0 +1,63 @@
+{{#chapter}}
+  <nav>
+    <ul class="pager pager-custom text-bg hidden-xs">
+      {{#prvt}}
+        <li class="previous small"><a href="{{prvu}}">{{#prv}}{{prvt}}{{/prv}}</a></li>
+      {{/prvt}}
+      {{#nxtt}}
+        <li class="next small"><a href="{{nxtu}}">{{#nxt}}{{nxtt}}{{/nxt}}</a></li>
+      {{/nxtt}}
+    </ul>
+  </nav>
+  <div class="text-bg">
+    <nav>
+      <ol class="breadcrumb small">
+        {{#path}}
+          {{#u}}
+            <li><a href="{{u}}">{{t}}</a></li>
+          {{/u}}
+          {{^u}}
+            <li class='active'>{{t}}</li>
+          {{/u}}
+        {{/path}}
+        {{#meta}}<li class="edit-chapter pull-right"><a class="text-danger" href="#">Edit</a></li>{{/meta}}
+      </ol>
+    </nav>
+    <article class="content" data-meta={{meta}}>
+      <header class="chapter-title">
+        <span class="date-badge"></span>
+        {{#dt}}
+          <h1 class="chapter-heading">{{t}}</h1>
+        {{/dt}}
+        {{^dt}}
+          <h1>{{t}}</h1>
+        {{/dt}}
+        {{#subt}}
+          <p class="l4">{{subt}}</p>
+        {{/subt}}
+      </header>
+      <aside class="chapter-meta">
+        {{#desc}}
+          <div class="desc small">{{#markedBasic}}{{{desc}}}{{/markedBasic}}</div>
+        {{/desc}}
+        {{#mot}}
+          <div class="motto">{{#markedBasic}}{{{mot}}}{{/markedBasic}}</div>
+        {{/mot}}
+      </aside>
+      {{#text}}
+        <div class="text">{{#marked}}{{{text}}}{{/marked}}</div>
+      {{/text}}
+    </article>
+    {{#meta}}<div class="js-edit-chapter"></div>{{/meta}}
+  </div>
+  <nav>
+    <ul class="pager pager-custom text-bg">
+      {{#prvt}}
+        <li class="previous small"><a href="{{prvu}}">{{#prv}}{{prvt}}{{/prv}}</a></li>
+      {{/prvt}}
+      {{#nxtt}}
+        <li class="next small"><a href="{{nxtu}}">{{#nxt}}{{nxtt}}{{/nxt}}</a></li>
+      {{/nxtt}}
+    </ul>
+  </nav>
+{{/chapter}}

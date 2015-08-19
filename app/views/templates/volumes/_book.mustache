@@ -1,0 +1,22 @@
+<li class="toc-book">
+  {{#bookt}}
+    <h2>{{#book}}<small>{{book}} / </small>{{/book}}{{bookt}}</h2>
+  {{/bookt}}
+  {{^bookt}}
+    {{#book}}<h2>{{book}}</h2>{{/book}}
+  {{/bookt}}
+  {{#parts.length}}
+    <ul class="list-unstyled parts">
+      {{#parts}}
+        {{> _part}}
+      {{/parts}}
+    </ul>
+  {{/parts.length}}
+  {{#chapters.length}}
+    <ul class="list-unstyled chapters">
+      {{#chapters}}
+        {{> _chapter}}
+      {{/chapters}}
+    </ul>
+  {{/chapters.length}}
+</li>

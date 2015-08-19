@@ -1,0 +1,44 @@
+paths:
+  'jquery': 'jquery/dist/jquery'
+  'jquery-ujs': 'jquery-ujs/src/rails'
+  'hogan': 'hogan/web/builds/3.0.2/hogan-3.0.2.amd'
+  'bootstrap': 'bootstrap-sass-official/assets/javascripts/bootstrap'
+  'bootstrap-growl': 'bootstrap.growl/dist/bootstrap-growl.min'
+  'jquery-touchswipe': 'jquery-touchswipe/jquery.touchSwipe'
+  'jquery.color': 'jquery-color/jquery.color'
+  'bootstrap-contextmenu': 'bootstrap-contextmenu/bootstrap-contextmenu'
+
+shim:
+  bootstrap/dropdown:
+    deps:
+    - jquery
+    exports: '$.fn.dropdown'
+  bootstrap/tooltip:
+    deps:
+    - jquery
+    exports: '$.fn.tooltip'
+  bootstrap/collapse:
+    deps:
+    - jquery
+    exports: '$.fn.collapse'
+  bootstrap/transition:
+    deps:
+    - jquery
+    exports: '$.fn.transition'
+  bootstrap/modal:
+    deps:
+    - jquery
+    exports: '$.fn.modal'
+  bootstrap/tab:
+    deps:
+    - jquery
+    exports: '$.fn.tab'
+  jquery-touchswipe:
+    deps:
+    - jquery
+  jquery.color:
+    deps:
+    - jquery
+  bootstrap-growl:
+    deps:
+    - jquery

@@ -1,0 +1,26 @@
+{{#conc}}
+  <div class="jumbotron text-center">
+    {{#t}}
+      <p class="l4"><a href="/{{curl}}/concordance">{{cmpn}} Concordance</a></p>
+    {{/t}}
+    <img src="{{#asset}}symbol_{{auth}}_.gif{{/asset}}">
+    {{#t}}
+      <h1>{{t}}</h1>
+      <p class="l3"><a href="/{{curl}}/{{#padNum}}{{vol}}{{/padNum}}/concordance">Volume {{vol}} &mdash; Concordance</a></p>
+    {{/t}}
+    {{^t}}
+      <h1>{{cmpn}}</h1>
+      <p class="l3"><a href="/{{comp}}/concordance">Concordance</a></p>
+    {{/t}}
+  </div>
+  <div id="words">
+    <ul class="list" id="list">
+      {{#list}}
+        <li class="alphabet col-sm-12">{{a}} <span class="conc-show-all">({{n}})</span></li>
+        {{#w}}
+          <li class="col-sm-3 col-overflow {{klass}}">{{w}} <span class="small text-muted">({{n}})</span></li>
+        {{/w}}
+      {{/list}}
+    </ul>
+  </div>
+{{/conc}}

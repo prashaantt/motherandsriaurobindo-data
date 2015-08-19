@@ -1,0 +1,20 @@
+<div id="words">
+  <ul class="list" id="list">
+    {{#entries.list}}
+      <li class="alphabet col-sm-12">{{a}}</li>
+      {{#w}}
+        <li class="col-sm-3 col-overflow {{klass}}">
+          {{#u}}
+            <a class="word" href="{{u}}">{{w}}</a>
+          {{/u}}
+          {{^u}}
+            <a class="word" href="{{w}}">{{w}}</a>
+          {{/u}}
+          {{#r}}
+            <span class="related">{{r}}</span>
+          {{/r}}
+        </li>
+      {{/w}}
+    {{/entries.list}}
+  </ul>
+</div>
